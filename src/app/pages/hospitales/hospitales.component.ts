@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Hospital } from '../../models/hospital.model';
 import { HospitalService } from 'src/app/services/service.index';
 import { ModalUploadService } from 'src/app/components/modal-upload/modal-upload.service';
-// import Swal from 'sweetalert2';
 
 import swal from 'sweetalert';
-
-// declare var swal: any;
 
 
 @Component({
@@ -68,16 +65,6 @@ export class HospitalesComponent implements OnInit {
       icon: 'info',
       buttons: ['Cancelar', 'Guardar'],
       dangerMode: true
-    // Swal.fire({
-    //   title: 'Crear hospital',
-    //   type: 'info',
-    //   html:
-    //     '<input type="Ingrese el nombre del hospital"> <br/>',
-    //   showCloseButton: true,
-    //   showCancelButton: true,
-    //   focusConfirm: false,
-    //   confirmButtonText: '<i class="fa fa-thumbs-up"></i> Guardar',
-    //   cancelButtonText: '<i class="fa fa-thumbs-down"></i> Cancelar'
     }).then((valor: any) => {
       if (!valor || valor.length === 0) {
         return;
