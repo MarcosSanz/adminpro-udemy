@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     // Para la imagen del perfil
     this.usuario = this.usuarioService.usuario;
+    this.sidebar.cargarMenu();
   }
 
 }

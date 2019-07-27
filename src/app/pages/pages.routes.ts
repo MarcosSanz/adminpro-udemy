@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Guards
 import { LoginGuardGuard } from '../services/service.index';
+import { AdminGuard } from '../services/service.index';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -35,7 +36,12 @@ const pagesRoutes: Routes = [
       { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario' } },
       { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador' } },
       // Mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de usuario' } },
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+        canActivate: [AdminGuard],
+        data: { titulo: 'Mantenimiento de usuario' }
+      },
       { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de hospitales' } },
       { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de medicos' } },
       { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Actualizar de medico' } },
