@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
-import { retry, map, filter } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -51,10 +51,10 @@ export class RxjsComponent implements OnInit, OnDestroy {
         // }
       }, 1000);
     }).pipe(
-      map( respuesta => respuesta.valor),
-      filter( ( valor, index ) => {
+      map(respuesta => respuesta.valor),
+      filter((valor, index) => {
         // Hacemos un filtro para los numeros impares.
-        if ( ( valor % 2) === 1) {
+        if ((valor % 2) === 1) {
           return true;
         } else {
           return false;
